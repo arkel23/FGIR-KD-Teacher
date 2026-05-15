@@ -1,0 +1,3 @@
+defaults:
+    dataset: 'datasets/pets.yaml'
+    augs: 'augs/weakaugs.yaml'

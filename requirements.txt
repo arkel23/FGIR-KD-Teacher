@@ -1,0 +1,8 @@
+wandb
+einops
+torchsummary
+# pip install --no-dependencies --force-reinstall -v "timm==0.9.12"
+# torchprofile
+# conda: pandas, numpy, scipy
+# optional: ml-collections, gradio matplotlib, cv2, torchcam, huggingface_hub
+

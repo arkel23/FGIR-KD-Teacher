@@ -1,0 +1,3 @@
+defaults:
+    dataset: 'datasets/imagenet1p.yaml'
+    augs: 'augs/weakaugs.yaml'

@@ -1,0 +1,6 @@
+custom_mean_std: True
+save_images: 100000
+
+defaults:
+    dataset: 'datasets/dafb.yaml'
+    augs: 'augs/weakaugs.yaml'

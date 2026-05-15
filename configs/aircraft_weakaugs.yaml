@@ -1,0 +1,3 @@
+defaults:
+    dataset: 'datasets/aircraft.yaml'
+    augs: 'augs/weakaugs.yaml'

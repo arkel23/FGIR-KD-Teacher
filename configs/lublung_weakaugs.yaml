@@ -1,0 +1,3 @@
+defaults:
+    dataset: 'datasets/lublung.yaml'
+    augs: 'augs/weakaugs.yaml'

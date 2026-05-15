@@ -1,0 +1,5 @@
+save_images: 100000
+
+defaults:
+    dataset: 'datasets/food.yaml'
+    augs: 'augs/weakaugs.yaml'

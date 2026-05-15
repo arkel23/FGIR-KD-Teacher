@@ -1,0 +1,10 @@
+dataset_name: 'bdctkidney'
+dataset_root_path: '../../data/medical/BDCTKidney/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone'
+df_train: 'train.csv'
+df_trainval: train_val.csv
+df_val: 'val.csv'
+df_test: 'test.csv'
+folder_train: 'CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone'
+folder_val: 'CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone'
+folder_test: 'CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone'
+df_classid_classname: 'classid_classname.csv'
