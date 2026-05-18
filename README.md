@@ -1,4 +1,20 @@
-# Teacher Guided Data Augmentation
+# How to Choose Your Teacher for Fine Grained Image Recognition
+
+Official PyTorch code for the paper: [How to Choose Your Teacher for Fine Grained Image Recognition published in Fine-Grained Visual Categorization](https://arxiv.org/abs/2605.15689) (FGVC13) @ CVPR 2026 Workshop.
+
+This paper introduces a teacher selection metric, Ratio 1-2, based on teacher prediction ratios.
+![](assets/metric_new.png)
+
+Our proposed metric demonstrates a strong correlation with the resulting student performance during knowledge distillation.
+![](assets/202_ratio_1_2_normal_cub.png)
+
+Extensive experiments across eight fine-grained image recognition (FGIR) datasets show that our method consistently achieves favorable results.
+![](assets/results.png)
+
+## Setup
+```
+pip install -e . 
+```
 
 ## Preparation
 
@@ -18,51 +34,13 @@ To visualize a specific class add: ` --vis_class {CLASS_ID}`.
 
 ## Train
 
-To train a `ViT FS` with `TGDA` on CUB using image size 448 for teacher and image size 224 for student:
+To train a `levit_128s` on aircraft using image size 224 for teacher and image size 224 for student:
 
 ```
-python -u tools/train_student.py --selector cal --tgda  --image_size 448 --serial 201 --sd 0.1 --ls --trivial_aug --model_name_teacher resnet101 --model_name vitfs_tiny_patch16_gap_reg4_dinov2_bn_init --cfg configs/cub_weakaugs.yaml --ckpt_path_teacher /edahome/pcslab/pcs05/edwin/results_backbones/serial15_ckpts/cub_tv_resnet101_cal_is448.pth --student_image_size 224
+python -u tools/train_student.py --project_name KD_ST_Others --square_resize_random_crop --test_square_resize_center_crop --cpu_workers 28 --cfg configs/aircraft_weakaugs.yaml --model_name levit_128s --model_name_teacher vit_b16 --ckpt_path_teacher ../../results_backbones/fz_ckpts/aircraft_vit_b16_fz.pth --epochs 1 --opt adamw --weight_decay 5e-2 --lr 5e-3 --temp 2 --loss_kd_weight 10 --compute_train_wise_teacher_metrics --serial 999
 ```
 
-## Compute CKA Similarity
-
-For frozen vanilla ViT B-16
-```
-python -u tools/postprocess/compute_cka_dists_attn_mean_std.py --cfg configs/cotton_weakaugs.yaml --debugging --batch_size 8 --model_name vit_b16 --pretrained --fp16
-```
-
-```
-python -u tools/postprocess/compute_cka_dists_two_models.py --cfg configs/cotton_weakaugs.yaml --debugging --batch_size 8 --model_name vit_b16 --pretrained --fp16 --model_name_teacher resnet50.tv_in1k
-```
-
-Results will be saved in `results_inference` directory.
-
-
-## Visualize attention
-
-For ViT with ILA to visualize attention rollout for the 1st encoder group (first 4 encoder blocks: 0_4):
-
-```
-python -u tools/postprocess/vis_dfsm.py --cfg configs/cub_weakaugs.yaml --debugging --batch_size 12 --vis_cols 12 --vis_mask attention_0 --model_name vit_b16 --pretrained
-```
-
-
-## Evaluation
-
-To evaluate a particular checkpoint on the test set (logs results to W&B):
-
-```
-python tools/train.py --ckpt_path ckpts/cub_glsim_224.pth --test_only
-```
-
-To visulize misclassification for a particular network on the test set:
-
-```
-python -u tools/postprocess/vis_dfsm.py --cfg configs/cub_weakaugs.yaml --debugging --batch_size 12 --vis_cols 12 --vis_mask attention_0 --model_name vit_b16 --pretrained --vis_wrong_only
-```
-
-For a specific class can use `--vis_class {CLASS_ID}`
-
+more examples of how to run the code may can be seen in scripts/sample.sh
 
 
 # Citation
