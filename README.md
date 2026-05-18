@@ -1,14 +1,17 @@
 # How to Choose Your Teacher for Fine Grained Image Recognition
 
-Official PyTorch code for the paper: [How to Choose Your Teacher for Fine Grained Image Recognition published in Fine-Grained Visual Categorization](https://arxiv.org/abs/2605.15689) (FGVC13) @ CVPR 2026 Workshop.
+Official PyTorch code for the paper: [How to Choose Your Teacher for Fine Grained Image Recognition](https://arxiv.org/abs/2605.15689), published at the Fine-Grained Visual Categorization (FGVC13) Workshop @ CVPR 2026.
 
 This paper introduces a teacher selection metric, Ratio 1-2, based on teacher prediction ratios.
+
 ![](assets/metric_new.png)
 
 Our proposed metric demonstrates a strong correlation with the resulting student performance during knowledge distillation.
+
 ![](assets/202_ratio_1_2_normal_cub.png)
 
 Extensive experiments across eight fine-grained image recognition (FGIR) datasets show that our method consistently achieves favorable results.
+
 ![](assets/results.png)
 
 ## Setup
