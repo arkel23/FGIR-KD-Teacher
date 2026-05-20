@@ -48,14 +48,28 @@ more examples of how to run the code may can be seen in scripts/sample.sh
 
 # Citation
 If you find our work helpful in your research, please cite it as:
+
 ```
-Pending
+@misc{gosal_how_2026,
+    title = {How to {Choose} {Your} {Teacher} for {Fine} {Grained} {Image} {Recognition}},
+    copyright = {arXiv.org perpetual, non-exclusive license},
+    url = {https://arxiv.org/abs/2605.15689},
+    doi = {10.48550/ARXIV.2605.15689},
+    abstract = {Fine-grained image recognition classifies subcategories such as bird species or car models. While state-of-the-art (SOTA) models are accurate, they are often too resource-intensive for deployment on constrained devices. Knowledge distillation addresses this by transferring knowledge from a large teacher model to a smaller student model. A key challenge is selecting the right teacher, as it heavily impacts student performance. This paper introduces a teacher selection metric, {\textbackslash}textbf\{Ratio 1-2\}, based on teacher prediction ratios. Extensive analysis of over one thousand experiments across 3 students, 8 teachers, and 8 datasets under 4 training strategies demonstrates that our metric improves teacher selection by 18{\textbackslash}\% over previous methods, enabling small student models to achieve up to 17{\textbackslash}\% accuracy gains. Experiment codebase is available at: {\textbackslash}href\{https://github.com/arkel23/FGIR-KD-Teacher\}\{https://github.com/arkel23/FGIR-KD-Teacher\}.},
+    urldate = {2026-05-18},
+    publisher = {arXiv},
+    author = {Gosal, Oswin and Rios, Edwin Arkel and Surya, Augusto Christian and Mikael, Fernando and Lai, Bo-Cheng and Hu, Min-Chun},
+    year = {2026},
+    note = {Version Number: 1},
+    keywords = {FOS: Computer and information sciences, Computer Vision and Pattern Recognition (cs.CV), I.2; I.4},
+}
+
 ```
 
 # Acknowledgements
 We thank NYCU's HPC Center and National Center for High-performance Computing (NCHC) for providing computational and storage resources. 
 
-We thank the authors of [TransFG](https://github.com/TACJu/TransFG), [FFVT](https://github.com/Markin-Wang/FFVT), [SimTrans](https://github.com/PKU-ICST-MIPL/SIM-Trans_ACMMM2022), [CAL](https://github.com/raoyongming/CAL), [MPN-COV](https://github.com/jiangtaoxie/MPN-COV), [VPT](https://github.com/KMnP/vpt), [VQT](https://github.com/andytu28/VQT), [ConvPass](https://github.com/JieShibo/PETL-ViT/tree/main/convpass) and [timm](https://github.com/huggingface/pytorch-image-models/) for providing implementations for comparison.
+We thank the authors of [CAL](https://github.com/raoyongming/CAL), and [timm](https://github.com/huggingface/pytorch-image-models/) for their code we used as foundation.
 
 Also, [Weight and Biases](https://wandb.ai/) for their platform for experiment management.
  
